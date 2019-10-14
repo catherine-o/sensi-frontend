@@ -1,6 +1,8 @@
 <template>
     <div class='welcome'>
-        <button>Start</button>
+        <router-link to='/login'>
+            <button>Start</button>
+        </router-link>
     </div>
 </template>
 
@@ -21,7 +23,7 @@
     @keyframes shadow-pulse
     {
         0% {
-            box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.05);
         }
         100% {
             box-shadow: 0 0 0 170px rgba(0, 0, 0, 0);
