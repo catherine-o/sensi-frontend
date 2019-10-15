@@ -40,12 +40,10 @@ export default {
         font-family: 'Titillium Web', sans-serif;
     }
     button {
-        box-shadow: 0.5px 4px 6px 1px #b8b8b8;
         margin-top: 15px;
     }
     button:hover {
         cursor: pointer;
-        box-shadow: 0 0 0 0;
         background-color: #26a7fd13;
         margin-top: 15px;
     }

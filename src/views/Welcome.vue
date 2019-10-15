@@ -1,10 +1,22 @@
 <template>
     <div class='welcome'>
-        <router-link to='/login'>
-            <button>Start</button>
-        </router-link>
+        {{this.user}}
+        ? <h1>{{user.username}}</h1>
+        :   (<router-link to='/login'>
+                <button>Start</button>
+            </router-link>)
     </div>
 </template>
+
+<script>
+export default {
+    computed: {
+        user(){
+            return this.$store.state.user
+        }
+    }
+}
+</script>
 
 <style lang="scss">
 .welcome {
