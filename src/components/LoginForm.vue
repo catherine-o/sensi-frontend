@@ -1,10 +1,27 @@
 <template>
-    <form class='login-form'>
-        <input id="username" name="username" type="text" placeholder='Username'>
-        <input id="password" name="password" type="password" placeholder='Password'>
+    <form class='login-form' @submit.prevent='loginUser'>
+        <input id="username" ref="username" type="text" placeholder='Username'>
+        <input id="password" ref="password" type="password" placeholder='Password'>
         <button>Submit</button>
     </form>
 </template>
+
+<script>
+export default {
+    methods: {
+        loginUser(){
+            this.$store.dispatch("loginUser", this.getFormValues())
+        },
+        getFormValues(){
+            this.output = {
+                username: this.$refs.username.value,
+                password: this.$refs.password.value
+            }
+            return this.output
+        }
+    }
+}
+</script>
 
 <style lang="scss">
 .login-form {

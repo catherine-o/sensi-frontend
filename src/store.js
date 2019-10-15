@@ -14,12 +14,14 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    // loginUser({ commit }){
-    //   fetch('https://sensi-backend.herokuapp.com/api/users')
-    //   .then(users => {
-    //     commit('setUsers', users)
-    //   })
-    // },
+    loginUser({ commit }, user){
+      axios.post('https://sensi-backend.herokuapp.com/api/login', user)
+      .then(function(response) {
+        console.log(response.data)
+        commit('setUser', response.data.user),
+        localStorage.setItem('token', response.data.token)
+      })
+    },
     createUser({commit}, user){
       axios.post('https://sensi-backend.herokuapp.com/api/users/signup', user)
       .then(function(response) {
