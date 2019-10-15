@@ -1,13 +1,15 @@
 <template>
-    <form class='login-form'>
+    <form class='create-user-form'>
         <input id="username" name="username" type="text" placeholder='Username'>
+        <input id="name" name="name" type="text" placeholder='Name'>
         <input id="password" name="password" type="password" placeholder='Password'>
+        <input id="password" name="password" type="password" placeholder='Confirm Password'>
         <button>Submit</button>
     </form>
 </template>
 
 <style lang="scss">
-.login-form {
+.create-user-form {
     display: flex;
     flex-direction: column;
     input, button {

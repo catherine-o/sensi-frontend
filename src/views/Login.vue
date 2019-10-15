@@ -1,8 +1,6 @@
 <template>
     <div class='login'>
-        <!-- <h1>Please Login</h1> -->
         <LoginTabs />
-        <!-- <LoginForm /> -->
     </div>
 </template>
 

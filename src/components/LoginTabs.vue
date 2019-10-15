@@ -11,7 +11,7 @@
             <label for='tab2-2' @click='selectTab'>New User</label>
             <input id='tab-2-2' name='tabs-two' type='radio'>
             <div>
-                <p>Create Form Here</p>
+                <CreateUserForm />
             </div>
         </div>
     </div>
@@ -19,9 +19,11 @@
 
 <script>
 import LoginForm from './LoginForm'
+import CreateUserForm from './CreateUserForm'
 export default {
     components: {
-        LoginForm
+        LoginForm,
+        CreateUserForm
     },
     methods: {
         selectTab(){
