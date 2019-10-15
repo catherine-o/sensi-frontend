@@ -37,7 +37,7 @@ export default {
         margin: 0 auto 18px auto;
         font-size: 15px;
         padding: 3px 15px;
-        font-family: 'Julius Sans One', sans-serif;
+        font-family: 'Titillium Web', sans-serif;
     }
     button {
         box-shadow: 0.5px 4px 6px 1px #b8b8b8;

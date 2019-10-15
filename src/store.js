@@ -17,7 +17,7 @@ export default new Vuex.Store({
     loginUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/login', user)
       .then(function(response) {
-        console.log(response.data)
+        console.log(response.data.user)
         commit('setUser', response.data.user),
         localStorage.setItem('token', response.data.token)
       })
