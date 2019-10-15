@@ -13,26 +13,25 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    loginUser({ commit }){
-      fetch('https://sensi-backend.herokuapp.com/api/users')
-      .then(users => {
-        commit('setUsers', users)
-      })
-    },
-    createUser({ commit }){
-      console.log(commit)
+    // loginUser({ commit }){
+    //   fetch('https://sensi-backend.herokuapp.com/api/users')
+    //   .then(users => {
+    //     commit('setUsers', users)
+    //   })
+    // },
+    createUser({ commit }, user){
       fetch('https://sensi-backend.herokuapp.com/api/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        'username': username,
-        'name': name,
-        'password': password
+        'username': user.username,
+        'name': user.name,
+        'password': user.password
         })
       })
-      // .then(result => console.log(result))
+      .then(result => console.log(result))
     }
   }
 })

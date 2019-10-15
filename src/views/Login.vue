@@ -5,12 +5,15 @@
 </template>
 
 <script>
-import LoginForm from "@/components/LoginForm"
 import LoginTabs from "@/components/LoginTabs"
 export default {
     components: {
-        LoginForm,
         LoginTabs
+    },
+    methods: {
+        createUser(user){
+            this.$emit("createUser", user)
+        }
     }
 }
 </script>

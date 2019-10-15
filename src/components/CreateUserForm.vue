@@ -1,5 +1,5 @@
 <template>
-    <form class='create-user-form' @submit.prevent='getFormValues'>
+    <form class='create-user-form' @submit.prevent='createUser'>
         <input id="create-username" ref="username" type="text" placeholder='Username'>
         <input id="create-name" ref="name" type="text" placeholder='Name'>
         <input id="create-password" ref="password" type="password" placeholder='Password'>
@@ -11,16 +11,16 @@
 <script>
 export default {
     methods: {
+        createUser(){
+            this.$store.dispatch("createUser", this.getFormValues())
+        },
         getFormValues(){
             this.output = {
                 username: this.$refs.username.value,
                 name: this.$refs.name.value,
                 password: this.$refs.password.value
             }
-            createUser(this.output)
-        },
-        createUser(values){
-            this.$store.dispatch("createUser", values)
+            return this.output
         }
     }
 }

@@ -28,6 +28,9 @@ export default {
     methods: {
         selectTab(){
             (event.target.nextSibling).checked = true
+        },
+        createUser(user){
+            this.$emit("createUser", user)
         }
     }
 }
