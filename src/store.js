@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+const axios = require ('axios')
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    users: null
+    user: null
   },
   mutations: {
-    setUsers(state, users){
-      state.users = users
+    setUser(state, user){
+      state.user = user
     }
   },
   actions: {
@@ -19,19 +20,12 @@ export default new Vuex.Store({
     //     commit('setUsers', users)
     //   })
     // },
-    createUser({ commit }, user){
-      fetch('https://sensi-backend.herokuapp.com/api/users/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        'username': user.username,
-        'name': user.name,
-        'password': user.password
-        })
+    createUser({commit}, user){
+      axios.post('https://sensi-backend.herokuapp.com/api/users/signup', user)
+      .then(function(response) {
+        commit('setUser', response.data.user),
+        localStorage.setItem('token', response.data.token)
       })
-      .then(result => console.log(result))
     }
   }
 })
