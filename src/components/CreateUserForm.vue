@@ -1,33 +1,53 @@
 <template>
-    <form class='create-user-form' @submit.prevent='createUser'>
-        <input id="create-username" ref="username" type="text" placeholder='Username'>
-        <input id="create-name" ref="name" type="text" placeholder='Name'>
-        <input id="create-password" ref="password" type="password" placeholder='Password'>
-        <input id="password-confirm" ref="password-confirm" type="password" placeholder='Confirm Password'>
-        <button>Submit</button>
-    </form>
+    <div>
+        <form class='create-user-form' @submit.prevent='getFormValues'>
+            <input id='create-username' v-model='input.username' type='text' placeholder='Username'>
+            <input id='create-name' v-model='input.name' type='text' placeholder='Name'>
+            <input id='create-password' v-model='input.password' type='password' placeholder='Password'>
+            <input id='password-confirm' v-model='input.passwordConfirm' type='password' placeholder='Confirm Password'>
+            <button>Submit</button>
+        </form>
+        <p>{{ input.message }}</p>
+    </div>
 </template>
 
 <script>
+import { create } from 'domain'
 export default {
+    data() {
+        return {
+            input: {
+                username: null,
+                name: null,
+                password: null,
+                passwordConfirm: null,
+                message: null
+            }
+        }
+    },
     methods: {
-        createUser(){
-            this.$store.dispatch("createUser", this.getFormValues())
+        createUser(user){
+            this.$store.dispatch('createUser', user)
             this.$router.push({ path: 'profile'})
         },
         getFormValues(){
-            this.output = {
-                username: this.$refs.username.value,
-                name: this.$refs.name.value,
-                password: this.$refs.password.value
-            }
-            return this.output
+            let userInfo = null
+            this.input.username && this.input.name && this.input.password
+            ? (this.input.password == this.input.passwordConfirm)
+                ? userInfo = {
+                    username: this.input.username,
+                    name: this.input.name,
+                    password: this.input.password
+                }
+                : this.input.message = ('Passwords do not match')
+            : this.input.message = ('Please fill in all fields')
+            if (userInfo) { this.createUser(userInfo) }
         }
     }
 }
 </script>
 
-<style lang="scss">
+<style lang='scss'>
 .create-user-form {
     display: flex;
     flex-direction: column;
