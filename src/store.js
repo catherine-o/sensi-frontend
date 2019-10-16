@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from './router'
 const axios = require ('axios')
 
 Vue.use(Vuex)
@@ -17,10 +18,10 @@ export default new Vuex.Store({
     loginUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/login', user)
       .then(function(response) {
-        console.log(response.data.user)
         commit('setUser', response.data.user),
         localStorage.setItem('token', response.data.token)
       })
+      .then(() => router.push({ path: 'profile'}))
     },
     createUser({commit}, user){
       axios.post('https://sensi-backend.herokuapp.com/api/users/signup', user)
@@ -28,6 +29,7 @@ export default new Vuex.Store({
         commit('setUser', response.data.user),
         localStorage.setItem('token', response.data.token)
       })
+      .then(result => router.push({ path: 'profile'}))
     }
   }
 })

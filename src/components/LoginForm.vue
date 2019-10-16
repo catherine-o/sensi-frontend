@@ -1,30 +1,45 @@
 <template>
-    <form class='login-form' @submit.prevent='loginUser'>
-        <input id="username" ref="username" type="text" placeholder='Username'>
-        <input id="password" ref="password" type="password" placeholder='Password'>
-        <button>Submit</button>
-    </form>
+    <div>
+        <form class='login-form' @submit.prevent='getFormValues'>
+            <input id='username' v-model='input.username' type='text' placeholder='Username'>
+            <input id='password' v-model='input.password' type='password' placeholder='Password'>
+            <button>Submit</button>
+        </form>
+        <p>{{ input.message }}</p>
+    </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            input: {
+                username: null,
+                password: null,
+                message: null
+            }
+        }
+    },
     methods: {
         loginUser(user){
-            this.$store.dispatch("loginUser", this.getFormValues())
-            this.$router.push({ path: 'profile'})
+            this.$store.dispatch('loginUser', user)
+            this.input.message = 'Success!'
         },
         getFormValues(){
-            this.output = {
-                username: this.$refs.username.value,
-                password: this.$refs.password.value
-            }
-            return this.output
+            let userInfo = null
+            this.input.username && this.input.password
+            ? userInfo = {
+                username: this.input.username,
+                password: this.input.password
+            }  
+            : this.input.message = 'Please fill in all fields'
+            if (userInfo) { this.loginUser(userInfo) }
         }
     }
 }
 </script>
 
-<style lang="scss">
+<style lang='scss'>
 .login-form {
     display: flex;
     flex-direction: column;

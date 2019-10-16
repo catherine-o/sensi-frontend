@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { create } from 'domain'
 export default {
     data() {
         return {
@@ -28,7 +27,7 @@ export default {
     methods: {
         createUser(user){
             this.$store.dispatch('createUser', user)
-            this.$router.push({ path: 'profile'})
+            this.input.message = 'Success!'
         },
         getFormValues(){
             let userInfo = null
