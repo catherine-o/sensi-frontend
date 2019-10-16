@@ -9,8 +9,9 @@
 <script>
 export default {
     methods: {
-        loginUser(){
+        loginUser(user){
             this.$store.dispatch("loginUser", this.getFormValues())
+            this.$router.push({ path: 'profile'})
         },
         getFormValues(){
             this.output = {

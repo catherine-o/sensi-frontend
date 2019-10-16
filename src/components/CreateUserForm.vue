@@ -13,6 +13,7 @@ export default {
     methods: {
         createUser(){
             this.$store.dispatch("createUser", this.getFormValues())
+            this.$router.push({ path: 'profile'})
         },
         getFormValues(){
             this.output = {

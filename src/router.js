@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Welcome from '@/views/Welcome'
+import Start from '@/views/Start'
 import Login from '@/views/Login'
+import Profile from '@/views/Profile'
 
 Vue.use(Router)
 
@@ -12,13 +13,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'welcome',
-      component: Welcome
+      name: 'start',
+      component: Start
     },
     {
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile
     },
 
     { path: '*', redirect: '/' }
