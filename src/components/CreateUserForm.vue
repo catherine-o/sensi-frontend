@@ -27,7 +27,7 @@ export default {
     methods: {
         createUser(user){
             this.$store.dispatch('createUser', user)
-            this.input.message = 'Success!'
+            this.input.message = 'Loading...'
         },
         getFormValues(){
             let userInfo = null

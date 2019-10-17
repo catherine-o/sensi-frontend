@@ -23,7 +23,7 @@ export default {
     methods: {
         loginUser(user){
             this.$store.dispatch('loginUser', user)
-            this.input.message = 'Success!'
+            this.input.message = 'Loading...'
         },
         getFormValues(){
             let userInfo = null
