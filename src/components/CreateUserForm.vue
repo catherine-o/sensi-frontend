@@ -54,18 +54,23 @@ export default {
         width: 300px;
         height: 35px;
         border-radius: 10px;
-        margin: 0 auto 18px auto;
+        margin: 15px auto;
         font-size: 15px;
         padding: 3px 15px;
         font-family: 'Titillium Web', sans-serif;
     }
     button {
+        background-color: #26a7fd13;
         margin-top: 15px;
     }
     button:hover {
         cursor: pointer;
-        background-color: #26a7fd13;
+        background-color: #a2acb3;
         margin-top: 15px;
+        width: 300px;
+        height: 35px;
+        padding: 3px 15px;
+        font-family: 'Titillium Web', sans-serif;
     }
 }
 </style>

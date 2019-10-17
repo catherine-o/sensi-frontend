@@ -8,6 +8,10 @@
                 placeholder="Two words or one story ...">
             </textarea>
         </form>
+        <div class='form-bottom'>
+            <p>Try to be descriptive</p>
+            <button>Submit</button>
+        </div>
     </div>
 </template>
 
@@ -36,6 +40,28 @@ export default {
         border: 1px solid lightgray;
         border-radius: 5px;
         font-size: 20px;
+    }
+    .form-bottom {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        button {
+            background-color: #26a7fd13;
+            width: 200px;
+            height: 35px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 15px;
+            padding: 3px 15px;
+            font-family: 'Titillium Web', sans-serif;
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: #a2acb3;
+            margin-top: 15px;
+            width: 200px;
+            height: 35px;
+        }
     }
 }
 

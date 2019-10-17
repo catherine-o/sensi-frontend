@@ -52,9 +52,12 @@ export default {
         padding: 3px 15px;
         font-family: 'Titillium Web', sans-serif;
     }
+    button {
+        background-color: #26a7fd13;
+    }
     button:hover {
         cursor: pointer;
-        background-color: #26a7fd13;
+        background-color: #a2acb3;
     }
 }
 </style>
