@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Store from './store'
 
 import Start from '@/views/Start'
 import Login from '@/views/Login'
@@ -43,7 +42,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!Store.state.user) {
+    if (!localStorage.getItem('token')) {
       next({ name: 'login' })
     } else {
       next() 
