@@ -27,6 +27,9 @@ export default {
     mounted(){
     },
     methods: {
+        analyzeText(){
+            
+        }
     }
 }
 </script>
@@ -35,11 +38,12 @@ export default {
 .create-post {
     text-align: center;
     font-size: 20px;
-    padding: 8%;
+    padding: 7%;
     #content {
         border: 1px solid lightgray;
         border-radius: 5px;
         font-size: 20px;
+        padding: 15px;
     }
     .form-bottom {
         display: flex;
