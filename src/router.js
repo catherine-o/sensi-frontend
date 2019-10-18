@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Start from '@/views/Start'
 import Login from '@/views/Login'
 import NewPost from '@/views/NewPost'
+import Profile from '@/views/Profile'
 
 Vue.use(Router)
 
@@ -34,6 +35,14 @@ const router = new Router({
       },
       name: 'new post',
       component: NewPost
+    },
+    {
+      path: '/profile',
+      meta: {
+        requiresAuth: true
+      },
+      name: 'profile',
+      component: Profile
     },
 
     { path: '*', redirect: '/' }

@@ -4,7 +4,6 @@ import router from './router'
 import createPersistedState from 'vuex-persistedstate'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-// const axios = require ('axios')
 
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)

@@ -1,5 +1,5 @@
 <template>
-    <div class='create-post'>
+    <div v-if='showForm' class='create-post'>
         <h1>How are you feeling today?</h1>
         <form class='post-form'>
             <textarea id='content' 
@@ -13,27 +13,36 @@
             <button @click='analyzeText'>Submit</button>
         </div>
     </div>
+    <div v-else>
+        <h1 class='thanks'>Thank you for sharing</h1>
+    </div>
 </template>
 
 <script>
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import router from '../router'
 export default {
     data(){
         return{
             input: {
                 content: null
-            }
+            },
+            showForm: true
         }
     },
     mounted(){
     },
     methods: {
+        hideForm(){
+            this.showForm = false
+            setTimeout(() => {
+                router.push({ path: '/profile'})
+            }, 5000)
+        },
         analyzeText(){
             let userID = this.$store.state.user.id
-            console.log(userID)
             let token = localStorage.getItem('token')
-            console.log(content)
             fetch('http://localhost:8080/api/users/' + userID + '/posts', {
                 method: 'POST',
                 headers: {
@@ -44,10 +53,9 @@ export default {
                     'content': this.input.content
                 })
             })
-            // .then(response => console.log(response))
             .then(response => response.json())
-            // .then(result => console.log(result.user))
-            .then(result => this.$store.dispatch('updatePosts', result.user))
+            .then(result => this.$store.dispatch('updatePosts', result.user)),
+                this.hideForm()
         }
     }
 }
@@ -84,6 +92,28 @@ export default {
             margin-top: 15px;
             width: 200px;
             height: 35px;
+        }
+    }
+}
+.thanks {
+    text-align: center;
+    padding: 20%;
+    font-size: 40px;
+    animation-name: fade;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    z-index: 1;
+    @keyframes fade{
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }   
+        100%{
+            opacity: 0;
         }
     }
 }
