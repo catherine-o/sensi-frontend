@@ -2,9 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from './router'
 import createPersistedState from 'vuex-persistedstate'
-const axios = require ('axios')
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+// const axios = require ('axios')
 
 Vue.use(Vuex)
+Vue.use(VueAxios, axios)
 
 export default new Vuex.Store({
   plugins: [createPersistedState()],

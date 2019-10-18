@@ -10,12 +10,14 @@
         </form>
         <div class='form-bottom'>
             <p>Try to be descriptive</p>
-            <button>Submit</button>
+            <button @click='analyzeText'>Submit</button>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 export default {
     data(){
         return{
@@ -28,7 +30,20 @@ export default {
     },
     methods: {
         analyzeText(){
-            
+            let userID = this.$store.state.user.id
+            let token = localStorage.getItem('token')
+            console.log(content)
+            fetch('http://localhost:8080/api/users/' + userID + '/posts', {
+                method: 'POST',
+                headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'content': this.input.content
+                })
+            })
+            .then(response => console.log(response))
         }
     }
 }
