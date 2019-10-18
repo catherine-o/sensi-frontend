@@ -31,6 +31,7 @@ export default {
     methods: {
         analyzeText(){
             let userID = this.$store.state.user.id
+            console.log(userID)
             let token = localStorage.getItem('token')
             console.log(content)
             fetch('http://localhost:8080/api/users/' + userID + '/posts', {
@@ -43,7 +44,10 @@ export default {
                     'content': this.input.content
                 })
             })
-            .then(response => console.log(response))
+            // .then(response => console.log(response))
+            .then(response => response.json())
+            // .then(result => console.log(result.user))
+            .then(result => this.$store.dispatch('updatePosts', result.user))
         }
     }
 }
