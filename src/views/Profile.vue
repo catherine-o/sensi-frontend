@@ -1,25 +1,29 @@
 <template>
     <div class='profile'>
         <div class='header'>
-            <h1>Here is your</h1>
-            <form>
+            <h1>Here is your Profile at a glance</h1>
+            <!-- <form>
                 <select v-model='selected' class='selection' @change='changeSelected()'>
                     <option value='week'>Week</option>
                     <option value='month'>Month</option>
                 </select>
-            </form>
-            <h1>at a glance</h1>
+            </form> -->
+            <!-- <h1>at a glance</h1> -->
         </div>
-        <div v-if='showWeek'>
+        <div>
+            <AllPosts />
+        </div>
+        <!-- <div v-if='showWeek'>
             <Week  />
         </div>
         <div v-else-if='showMonth'>
             <Month  />
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
+import AllPosts from '../components/AllPosts'
 import Week from '../components/Week'
 import Month from '../components/Month'
 export default {
@@ -31,6 +35,7 @@ export default {
         }
     },
     components: {
+        AllPosts,
         Week,
         Month
     },

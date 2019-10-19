@@ -2,7 +2,7 @@
     <div>
         <h1>Show week</h1>
         <ul>
-            <li v-for='post in posts'>
+            <li v-for='post of posts'>
             {{ post.created_at }}
             </li>
         </ul>
