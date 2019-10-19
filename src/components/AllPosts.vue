@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>AllPosts</h1>
+        <!-- <h1>AllPosts</h1> -->
         <ul>
             <li v-for='(post, index) in posts' 
                 :key='`post=${index}`'
                 :style='determineColor(post)'>
             {{ post.polarity }}
-            {{ post.polarity_confidence }}
+            <!-- {{ post.polarity_confidence }} -->
             </li>
         </ul>
     </div>
@@ -22,15 +22,15 @@ export default {
     methods: {
         determineColor(post){
             if (post.polarity === 'negative' && post.polarity_confidence >= 0.75) {
-                return {'background-color': 'darkblue'}
+                return {'background-color': '#1572B8'}
             } else if (post.polarity === 'negative') {
-                return {'background-color': 'blue'}
+                return {'background-color': '#9CD4FA'}
             } else if (post.polarity === 'neutral') {
-                return {'background-color': 'orange'}
+                return {'background-color': '#E8F3FB'}
             } else if (post.polarity === 'positive' && post.polarity_confidence < 0.75) {
-                return {'background-color': 'lightyellow'}
+                return {'background-color': '#FFF3A2'}
             } else if (post.polarity === 'positive' && post.polarity_confidence >= 0.75) {
-                return {'background-color': 'yellow'}
+                return {'background-color': '#FFD451'}
             }
         }
     }
@@ -43,10 +43,16 @@ ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+    padding: 0 17%;
+    height: 400px;
+    overflow: auto;
+
     li {
-        border: 1px solid lightgray;
-        width: 20%;
-        margin: 15px;
+        border-radius: 5px;
+        width: 10%;
+        height: 60px;
+        margin: 20px;
+        color: rgba(255, 255, 255, 0);
     }
 }
 </style>

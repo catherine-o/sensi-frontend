@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss">
 .header{
-    padding-left: 10%;
+    padding: 2% 0 0 15%;
     display: flex;
     .selection {
         font-size: 32px;
