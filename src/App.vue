@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>Sensi</h1>
+      <h1 class='nav'>Sensi</h1>
       <h1>Views</h1>
     </header>
     <main>

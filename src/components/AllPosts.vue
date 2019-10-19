@@ -42,16 +42,20 @@ ul {
     list-style: none;
     display: flex;
     flex-flow: row wrap;
+    align-content: center;
     justify-content: space-evenly;
     padding: 0 17%;
-    height: 400px;
     overflow: auto;
-
+    // border: 1px solid lightblue;
+    @media only screen and (min-width: 900px){
+        justify-content: flex-start;
+        max-height: 70vh;
+    }
     li {
         border-radius: 5px;
-        width: 10%;
-        height: 60px;
-        margin: 20px;
+        width: 70px;
+        height: 70px;
+        margin: 1%;
         color: rgba(255, 255, 255, 0);
     }
 }
