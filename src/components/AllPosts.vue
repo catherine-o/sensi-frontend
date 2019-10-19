@@ -16,25 +16,23 @@
 export default {
     data(){
         return{
-            posts: this.$store.state.user.posts,
-            // variants: [
-            //     {
-            //         variantId: 1,
-            //         variantColor: 'dark blue'
-            //     }
-            // ]
+            posts: this.$store.state.user.posts
         }
     },
     methods: {
-       determineColor(post){
-           if (post.polarity === 'positive') {
-               return {'background-color': 'yellow'}
-           } else if (post.polarity === 'negative') {
-               return {'background-color': 'darkblue'}
-           } else if (post.polarity === 'neutral') {
-               return {'background-color': 'beige'}
-           }
-       }
+        determineColor(post){
+            if (post.polarity === 'negative' && post.polarity_confidence >= 0.75) {
+                return {'background-color': 'darkblue'}
+            } else if (post.polarity === 'negative') {
+                return {'background-color': 'blue'}
+            } else if (post.polarity === 'neutral') {
+                return {'background-color': 'orange'}
+            } else if (post.polarity === 'positive' && post.polarity_confidence < 0.75) {
+                return {'background-color': 'lightyellow'}
+            } else if (post.polarity === 'positive' && post.polarity_confidence >= 0.75) {
+                return {'background-color': 'yellow'}
+            }
+        }
     }
 }
 </script>
@@ -47,6 +45,8 @@ ul {
     justify-content: space-evenly;
     li {
         border: 1px solid lightgray;
+        width: 20%;
+        margin: 15px;
     }
 }
 </style>
