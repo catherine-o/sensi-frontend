@@ -7,7 +7,7 @@
         <h4 @click='routeToNewPost'>New Post</h4>
         <h4 @click='routeToLogin'>Logout</h4>
       </div>
-      <h1>Views</h1>
+      <h1 class='views' @click='routeToViews'>Views</h1>
     </header>
     <main>
       <router-view />
@@ -20,7 +20,7 @@ export default {
   methods: {
     routeToProfile(){
       (!this.$store.state.user.posts)
-        ? alert('Please create an entry to optimize your experience')
+        ? alert('Please create an entry to continue :)')
         : this.$router.push({ path: 'profile'})
     },
     routeToLogin(){
@@ -29,6 +29,9 @@ export default {
     },
     routeToNewPost(){
       this.$router.push({ path: 'newpost' })
+    },
+    routeToViews(){
+      this.$router.push({ path: 'views' })
     }
   }
 }
@@ -54,6 +57,9 @@ export default {
       }
       h4:hover {
         text-decoration: underline;
+      }
+      .views:hover {
+        color: #26a7fd;
       }
     }
   }

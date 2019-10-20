@@ -1,7 +1,6 @@
 <template>
     <div>
         <ul>
-            <!-- {{reversePosts}} -->
             <li v-for='post in posts' 
                 :key='post.id'
                 :style='determineColor(post)'>
@@ -16,7 +15,6 @@ export default {
     data(){
         return{
             posts: this.$store.state.user.posts
-            // reversePosts: this.posts.reverse()
         }
     },
     methods: {
@@ -46,7 +44,6 @@ ul {
     justify-content: space-evenly;
     padding: 0 17%;
     overflow: auto;
-    // border: 1px solid lightblue;
     @media only screen and (min-width: 900px){
         justify-content: flex-start;
         max-height: 70vh;
