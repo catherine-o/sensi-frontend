@@ -1,6 +1,7 @@
 <template>
     <div>
         <ul>
+            <!-- {{reversePosts}} -->
             <li v-for='post in posts' 
                 :key='post.id'
                 :style='determineColor(post)'>
@@ -14,7 +15,8 @@
 export default {
     data(){
         return{
-            posts: this.$store.state.user.posts.reverse()
+            posts: this.$store.state.user.posts
+            // reversePosts: this.posts.reverse()
         }
     },
     methods: {

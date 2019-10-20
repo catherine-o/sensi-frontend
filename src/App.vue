@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <header>
-      <h1 class='nav'>Sensi</h1>
+      <div class='nav'>
+        <h1>Sensi</h1>
+        <h4 @click='routeToProfile'>Profile</h4>
+        <h4 @click='routeToNewPost'>New Post</h4>
+        <h4 @click='routeToLogin'>Logout</h4>
+      </div>
       <h1>Views</h1>
     </header>
     <main>
@@ -9,6 +14,25 @@
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    routeToProfile(){
+      (!this.$store.state.user.posts)
+        ? alert('Please create an entry to optimize your experience')
+        : this.$router.push({ path: 'profile'})
+    },
+    routeToLogin(){
+      this.$router.push({ path: 'login' })
+      localStorage.clear()
+    },
+    routeToNewPost(){
+      this.$router.push({ path: 'newpost' })
+    }
+  }
+}
+</script>
 
 <style lang="scss">
   #app {
@@ -18,6 +42,19 @@
       display: flex;
       justify-content: space-between;
       padding: 0 4%;
+      .nav {
+        display: inline-flex;
+      }
+      .nav:hover h4 {
+        visibility: visible;
+      }
+      h4 {
+        visibility: hidden;
+        margin: 35px 0 0 30px;
+      }
+      h4:hover {
+        text-decoration: underline;
+      }
     }
   }
 </style>

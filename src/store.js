@@ -15,28 +15,47 @@ export default new Vuex.Store({
   },
   mutations: {
     setUser(state, user){
-      state.user = user
+      if (user.posts){
+        let reversedPosts = user.posts.reverse()
+        user.posts = reversedPosts
+        state.user = user
+      } else {
+        state.user = user
+      }
     }
   },
   actions: {
     loginUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/login', user)
-      .then(function(response) {
-        commit('setUser', response.data.user),
-        localStorage.setItem('token', response.data.token)
-      })
-      .then(() => router.push({ path: '/newpost'}))
+        .then(function(response) {
+          commit('setUser', response.data.user),
+          localStorage.setItem('token', response.data.token)
+        })
+        .then(() => router.push({ path: '/newpost' }))
     },
     createUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/users/signup', user)
-      .then(function(response) {
-        commit('setUser', response.data.user),
-        localStorage.setItem('token', response.data.token)
-      })
-      .then(result => router.push({ path: '/newpost'}))
+        .then(function(response) {
+          commit('setUser', response.data.user),
+          localStorage.setItem('token', response.data.token)
+        })
+        .then(result => router.push({ path: '/newpost' }))
     },
     updatePosts({ commit }, user){
       commit('setUser', user)
-    }
+    },
+    // getPosts({ commit }, user){
+    //   let token = localStorage.getItem('token')
+    //   axios.post('http://localhost:8080/api/users/' + user.id, {
+    //     headers: {
+    //       'Authorization': `Bearer ${token}`
+    //     }
+    //   })
+    //     .then(response => console.log(response.data))
+    //     // .then(function(response) {
+    //     //   commit('setUser', response.data.user)
+    //     // })
+    //     // .then(result => router.push({ path: '/profile' }))
+    // }
   }
 })
