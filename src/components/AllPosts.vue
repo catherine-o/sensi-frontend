@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul>
-            <li v-for='(post, index) in posts' 
-                :key='`post=${index}`'
+            <li v-for='post in posts' 
+                :key='post.id'
                 :style='determineColor(post)'>
             {{ post.polarity }}
             </li>
@@ -14,7 +14,7 @@
 export default {
     data(){
         return{
-            posts: this.$store.state.user.posts
+            posts: this.$store.state.user.posts.reverse()
         }
     },
     methods: {
