@@ -38,12 +38,12 @@ export default {
             this.showForm = false
             setTimeout(() => {
                 router.push({ path: '/profile'})
-            }, 5000)
+            }, 4000)
         },
         analyzeText(){
             let userID = this.$store.state.user.id
             let token = localStorage.getItem('token')
-            fetch('http://localhost:8080/api/users/' + userID + '/posts', {
+            fetch('https://sensi-backend.herokuapp.com/api/users/' + userID + '/posts', {
                 method: 'POST',
                 headers: {
                 'Authorization': `Bearer ${token}`,
@@ -97,12 +97,12 @@ export default {
 }
 .thanks {
     text-align: center;
-    padding: 20%;
+    padding: 15%;
     font-size: 40px;
     animation-name: fade;
     animation-fill-mode: both;
     animation-iteration-count: 1;
-    animation-duration: 5s;
+    animation-duration: 4s;
     animation-direction: alternate;
     z-index: 1;
     @keyframes fade{

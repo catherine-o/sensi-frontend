@@ -1,12 +1,10 @@
 <template>
     <div>
-        <!-- <h1>AllPosts</h1> -->
         <ul>
             <li v-for='(post, index) in posts' 
                 :key='`post=${index}`'
                 :style='determineColor(post)'>
             {{ post.polarity }}
-            <!-- {{ post.polarity_confidence }} -->
             </li>
         </ul>
     </div>
