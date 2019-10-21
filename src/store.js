@@ -15,23 +15,20 @@ export default new Vuex.Store({
   },
   mutations: {
     setUser(state, user){
-      if (user.posts){
-        let reversedPosts = user.posts.reverse()
-        user.posts = reversedPosts
         state.user = user
-      } else {
-        state.user = user
-      }
     }
   },
   actions: {
     loginUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/login', user)
         .then(function(response) {
-          commit('setUser', response.data.user),
-          localStorage.setItem('token', response.data.token)
+          !response.data.user 
+          ? alert("Incorrect username or password")
+          : commit('setUser', response.data.user),
+            localStorage.setItem('token', response.data.token),
+            () => router.push({ path: '/newpost' })
         })
-        .then(() => router.push({ path: '/newpost' }))
+        // .then(() => router.push({ path: '/newpost' }))
     },
     createUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/users/signup', user)
