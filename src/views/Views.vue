@@ -7,7 +7,8 @@
             <li><iframe width="340" height="192" src="https://www.youtube.com/embed/qhLExhpXX0E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
             <li><iframe width="340" height="192" src="https://www.youtube.com/embed/7AkbUfZjS5k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
             <li><iframe width="340" height="192" src="https://www.youtube.com/embed/Ek6nZICuAxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
-            <li><iframe width="340" height="192" src="https://www.youtube.com/embed/gU9uURLxonI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe></li>
+            <li><iframe width="340" height="192" src="https://www.youtube.com/embed/gU9uURLxonI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+            <!-- <li><iframe width="340" height="192" src="https://www.svrf.com/embed/vr/915193" allowfullscreen></iframe></li> -->
         </ul>
         <!-- <Pano type='video' source='https://www.youtube.com/watch?list=PLbsGxdAPhjv_tgCNWGaGvSnlIMZNkmnrM'></Pano> -->
     </div>
@@ -34,6 +35,7 @@ export default {
     li {
         width: 340px;
         height: 192px;
+
     }
 }
 </style>

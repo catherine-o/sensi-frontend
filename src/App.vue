@@ -5,7 +5,7 @@
         <h1>Sensi</h1>
         <h4 @click='routeToProfile'>Profile</h4>
         <h4 @click='routeToNewPost'>New Post</h4>
-        <h4 @click='routeToLogin'>Logout</h4>
+        <h4 @click='routeToStart'>Logout</h4>
       </div>
       <h1 class='views' @click='routeToViews'>Views</h1>
     </header>
@@ -23,8 +23,8 @@ export default {
         ? alert('Please create an entry to continue :)')
         : this.$router.push({ path: 'profile'})
     },
-    routeToLogin(){
-      this.$router.push({ path: 'login' })
+    routeToStart(){
+      this.$router.push({ path: 'start' })
       localStorage.clear()
     },
     routeToNewPost(){
