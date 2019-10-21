@@ -24,6 +24,9 @@ export default {
         loginUser(user){
             this.$store.dispatch('loginUser', user)
             this.input.message = 'Loading...'
+            setTimeout(() => {
+                this.input.message = ''
+            }, 4000)
         },
         getFormValues(){
             let userInfo = null
