@@ -19,7 +19,7 @@ import Axios from 'axios';
 import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, Axios)
-
+let camera = null
 export default ({
     template: '#main',
     data() {
@@ -28,12 +28,17 @@ export default ({
         canvas: {},
         captures: [],
         testTimer: '',
-        smile: ''
+        smile: '',
+        stream: null
         };
     },
     beforeDestroy(){
-        this.video.srcObject = null
-        this.video.stop()
+        camera
+            .getTracks()
+            .forEach(function(track) {
+                track.stop();
+            })
+        camera = null
     },
     mounted() {
     //Start the PC front camera and display real-time video on the video tag
@@ -41,6 +46,7 @@ export default ({
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({audio: false, video: true})
         .then(stream => {
+            camera = stream
             this.video.srcObject = stream
             this.video.play()
         })
