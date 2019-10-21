@@ -5,6 +5,7 @@ import Start from '@/views/Start'
 import Login from '@/views/Login'
 import NewPost from '@/views/NewPost'
 import Profile from '@/views/Profile'
+import Smile from '@/views/Smile'
 import Views from '@/views/Views'
 
 Vue.use(Router)
@@ -44,6 +45,14 @@ const router = new Router({
       },
       name: 'profile',
       component: Profile
+    },
+    {
+      path: '/smile',
+      meta: {
+        requiresAuth: true
+      },
+      name: 'smile',
+      component: Smile
     },
     {
       path: '/views',

@@ -7,7 +7,7 @@
         <h4 @click='routeToNewPost'>New Post</h4>
         <h4 @click='routeToStart'>Logout</h4>
       </div>
-      <h1 class='views' @click='routeToViews'>Views</h1>
+      <h1 class='views' @click='routeToSmile'>Views</h1>
     </header>
     <main>
       <router-view />
@@ -30,8 +30,8 @@ export default {
     routeToNewPost(){
       this.$router.push({ path: 'newpost' })
     },
-    routeToViews(){
-      this.$router.push({ path: 'views' })
+    routeToSmile(){
+      this.$router.push({ path: 'smile' })
     }
   }
 }
