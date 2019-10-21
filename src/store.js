@@ -15,7 +15,10 @@ export default new Vuex.Store({
   },
   mutations: {
     setUser(state, user){
-        state.user = user
+      !user.posts
+        ? state.user = user
+        : user.posts.reverse()
+          state.user = user
     }
   },
   actions: {
