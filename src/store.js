@@ -11,7 +11,7 @@ Vue.use(VueAxios, axios)
 export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    user: localStorage.getItem('user')
+    user: localStorage.getItem('vuex')
   },
   mutations: {
     setUser(state, user){
@@ -26,9 +26,8 @@ export default new Vuex.Store({
           ? alert("Incorrect username or password")
           : commit('setUser', response.data.user),
             localStorage.setItem('token', response.data.token),
-            () => router.push({ path: '/newpost' })
+            router.push({ path: '/newpost' })
         })
-        // .then(() => router.push({ path: '/newpost' }))
     },
     createUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/users/signup', user)
