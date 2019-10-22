@@ -7,7 +7,7 @@
             <canvas ref="canvas" id="emo_canvas" width="400" height="400"></canvas>
             </div>
         </div>
-        <span>Smiling: {{ this.smile}}</span>
+        <span>Smiling: {{ this.smile }} %</span>
         <!-- <video ref="cam" id='video' @play='detectExpressions' width='640' height='480' autoplay muted playsinline></video> -->
         <p>Feel the endorphins</p>
     </div>
@@ -28,8 +28,7 @@ export default ({
         canvas: {},
         captures: [],
         testTimer: '',
-        smile: '',
-        stream: null
+        smile: null
         };
     },
     beforeDestroy(){
@@ -58,7 +57,7 @@ export default ({
         this.testTimer = setInterval(() => {
         let context = this.canvas.getContext("2d").drawImage(this.video, 0, 0, 400, 300)
         this.captures.push(this.canvas.toDataURL("image/png")) //Store the captured image in the "captures" array
-        let subscriptionKey = "key";
+        // let subscriptionKey = 'b5f4ba8d076b486f9147b4d68c67b10b';
         let uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
         let params = {
             "returnFaceId": "true",
@@ -70,7 +69,7 @@ export default ({
         const imgURL = this.makeblob(this.captures[this.captures.length - 1])
         //Send imgURL image to Face API
         Axios.post(
-            uriBase + "?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,emotion",
+            uriBase + "?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=emotion",
             imgURL,
             {
             headers: {
@@ -81,12 +80,14 @@ export default ({
         )
         .then(response => {
             console.log(response.data[0].faceAttributes.emotion)
-
+            console.log(response.data[0].faceAttributes.emotion.happiness)
+            this.smile = (response.data[0].faceAttributes.emotion.happiness) * 100
+            // {anger: 0, contempt: 0, disgust: 0, fear: 0, happiness: 0, …}
         })
         .catch(error => {
             // console.log(error.response)
         });
-        }, 10000);
+        }, 6000);
     },
     methods: {     
         makeblob: function (dataURL) {
