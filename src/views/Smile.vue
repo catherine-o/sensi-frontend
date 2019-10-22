@@ -1,6 +1,6 @@
 <template>
     <div class='smile'>
-        <h1>Smile to Activate</h1>
+        <h1>Smile Big to Activate</h1>
         <div class='images'>
             <video ref="video" id="video" width="400" height="400" playsinline muted autoplay></video>
             <div>
@@ -8,7 +8,6 @@
             </div>
         </div>
         <span>Smiling: {{ this.smile }} %</span>
-        <!-- <video ref="cam" id='video' @play='detectExpressions' width='640' height='480' autoplay muted playsinline></video> -->
         <p>Feel the endorphins</p>
     </div>
 </template>
@@ -17,6 +16,7 @@
 import Vue from 'vue';
 import Axios from 'axios';
 import VueAxios from 'vue-axios'
+import router from '../router'
 
 Vue.use(VueAxios, Axios)
 let camera = null
@@ -31,6 +31,17 @@ export default ({
         smile: 0
         };
     },
+    // watch: {
+    //     smile(){
+    //         let number = this.smile
+    //         if(number > 50){
+    //             console.log('big smile')
+    //         } else {
+    //             console.log('smile bigger')
+    //         }
+            
+    //     }
+    // },
     beforeDestroy(){
         camera
             .getTracks()
@@ -58,7 +69,7 @@ export default ({
         this.testTimer = setInterval(() => {
         let context = this.canvas.getContext("2d").drawImage(this.video, 0, 0, 400, 300)
         this.captures.push(this.canvas.toDataURL("image/png")) //Store the captured image in the "captures" array
-        // let subscriptionKey = 'b5f4ba8d076b486f9147b4d68c67b10b';
+        let subscriptionKey = 'b5f4ba8d076b486f9147b4d68c67b10b';
         let uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
         let params = {
             "returnFaceId": "true",
@@ -82,6 +93,11 @@ export default ({
         .then(response => {
             console.log(response.data[0].faceAttributes.emotion)
             this.smile = (response.data[0].faceAttributes.emotion.happiness) * 100
+            if (this.smile > 95){ 
+                setTimeout(() => {
+                router.push({ path: '/views'})
+                }, 3000)
+            }
         })
         .catch(error => {
             // console.log(error.response)
