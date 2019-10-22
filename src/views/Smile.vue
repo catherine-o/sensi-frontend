@@ -1,6 +1,7 @@
 <template>
     <div class='smile'>
         <h1>Smile Big to Activate</h1>
+        <p>Hold for 6 seconds - you can do it!</p>
         <div class='images'>
             <video ref="video" id="video" width="400" height="400" playsinline muted autoplay></video>
             <div>
@@ -17,9 +18,10 @@ import Vue from 'vue';
 import Axios from 'axios';
 import VueAxios from 'vue-axios'
 import router from '../router'
-// require('dotenv').config()
+
 Vue.use(VueAxios, Axios)
 let camera = null
+
 export default ({
     template: '#main',
     data() {
@@ -126,7 +128,7 @@ export default ({
             #emo_canvas {
                 padding-top: 5%;
                 @media only screen and (min-width: 900px){ 
-                    padding: 11% 0 0px 7%;
+                    padding: 11.5% 0 0px 7%;
                 }
             }
         }
