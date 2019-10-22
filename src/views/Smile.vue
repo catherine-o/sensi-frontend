@@ -28,7 +28,7 @@ export default ({
         canvas: {},
         captures: [],
         testTimer: '',
-        smile: null
+        smile: 0
         };
     },
     beforeDestroy(){
@@ -38,6 +38,7 @@ export default ({
                 track.stop();
             })
         camera = null
+        clearInterval(this.testTimer)
     },
     mounted() {
     //Start the PC front camera and display real-time video on the video tag
@@ -51,7 +52,7 @@ export default ({
         })
         }
 
-        console.log(this.$refs.canvas)
+        // console.log(this.$refs.canvas)
 
         this.canvas = this.$refs.canvas 
         this.testTimer = setInterval(() => {
@@ -80,9 +81,7 @@ export default ({
         )
         .then(response => {
             console.log(response.data[0].faceAttributes.emotion)
-            console.log(response.data[0].faceAttributes.emotion.happiness)
             this.smile = (response.data[0].faceAttributes.emotion.happiness) * 100
-            // {anger: 0, contempt: 0, disgust: 0, fear: 0, happiness: 0, …}
         })
         .catch(error => {
             // console.log(error.response)
