@@ -49,9 +49,12 @@ export default {
         display: inline-flex;
       }
       .nav:hover h4 {
+        opacity: 1;
         visibility: visible;
       }
       h4 {
+        transition: 1s ease-in-out;
+        opacity: 0;
         visibility: hidden;
         margin: 35px 0 0 30px;
       }
