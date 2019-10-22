@@ -17,7 +17,7 @@ import Vue from 'vue';
 import Axios from 'axios';
 import VueAxios from 'vue-axios'
 import router from '../router'
-
+// require('dotenv').config()
 Vue.use(VueAxios, Axios)
 let camera = null
 export default ({
@@ -31,17 +31,6 @@ export default ({
         smile: 0
         };
     },
-    // watch: {
-    //     smile(){
-    //         let number = this.smile
-    //         if(number > 50){
-    //             console.log('big smile')
-    //         } else {
-    //             console.log('smile bigger')
-    //         }
-            
-    //     }
-    // },
     beforeDestroy(){
         camera
             .getTracks()
@@ -63,13 +52,11 @@ export default ({
         })
         }
 
-        // console.log(this.$refs.canvas)
-
         this.canvas = this.$refs.canvas 
         this.testTimer = setInterval(() => {
         let context = this.canvas.getContext("2d").drawImage(this.video, 0, 0, 400, 300)
         this.captures.push(this.canvas.toDataURL("image/png")) //Store the captured image in the "captures" array
-        let subscriptionKey = 'b5f4ba8d076b486f9147b4d68c67b10b';
+        let subscriptionKey ='b5f4ba8d076b486f9147b4d68c67b10b';
         let uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
         let params = {
             "returnFaceId": "true",
@@ -91,7 +78,6 @@ export default ({
             },
         )
         .then(response => {
-            console.log(response.data[0].faceAttributes.emotion)
             this.smile = (response.data[0].faceAttributes.emotion.happiness) * 100
             if (this.smile > 95){ 
                 setTimeout(() => {
@@ -100,7 +86,7 @@ export default ({
             }
         })
         .catch(error => {
-            // console.log(error.response)
+            console.log(error.response)
         });
         }, 6000);
     },

@@ -4,9 +4,15 @@
             <li v-for='post in posts' 
                 :key='post.id'
                 :style='determineColor(post)'>
-            {{ post.polarity }}
+                <span class='polarity'>{{ post.polarity }}</span>
+                <span class='content'>{{ post.content }}</span>
             </li>
         </ul>
+        <div class='footer'>
+            <h1>-</h1>
+            <div id='key'></div>
+            <h1>+</h1>
+        </div>
     </div>
 </template>
 
@@ -41,12 +47,16 @@ ul {
     display: flex;
     flex-flow: row wrap;
     align-content: center;
-    justify-content: space-evenly;
-    padding: 0 17%;
     overflow: auto;
+    // width: 100%;
+    // justify-content: space-around;
+    // border-bottom: 5px solid black;
     @media only screen and (min-width: 900px){
-        justify-content: flex-start;
-        max-height: 70vh;
+    justify-content: space-evenly;
+    margin: 0 12%;
+    padding: 1% 5% 7% 7%;
+    justify-content: flex-start;
+    max-height: 70vh;
     }
     li {
         border-radius: 5px;
@@ -54,6 +64,25 @@ ul {
         height: 70px;
         margin: 1%;
         color: rgba(255, 255, 255, 0);
+    }
+}
+.footer {
+    align-content: center;
+    display: flex;
+    @media only screen and (min-width: 900px){
+        justify-content: center;
+    }
+    #key {
+        margin: auto 0;
+        border-radius: 5px;
+        height: 10px;
+        width: 60%;
+        background-color: gray;
+        background-image: linear-gradient(to right, #1572B8, #9CD4FA, #E8F3FB, #FFF3A2, #FFD451);
+    }
+    h1 {
+        margin: auto 15px;
+        color: black;
     }
 }
 </style>
