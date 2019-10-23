@@ -42,19 +42,6 @@ export default new Vuex.Store({
     },
     updatePosts({ commit }, user){
       commit('setUser', user)
-    },
-    // getPosts({ commit }, user){
-    //   let token = localStorage.getItem('token')
-    //   axios.post('http://localhost:8080/api/users/' + user.id, {
-    //     headers: {
-    //       'Authorization': `Bearer ${token}`
-    //     }
-    //   })
-    //     .then(response => console.log(response.data))
-    //     // .then(function(response) {
-    //     //   commit('setUser', response.data.user)
-    //     // })
-    //     // .then(result => router.push({ path: '/profile' }))
-    // }
+    }
   }
 })
