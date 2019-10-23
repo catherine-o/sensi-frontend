@@ -6,6 +6,7 @@
         <h1>Sensi</h1>
         <h4 @click='routeToProfile'>Profile</h4>
         <h4 @click='routeToNewPost'>New Post</h4>
+        <h4 @click='toggle'>Fullscreen</h4>
         <h4 @click='routeToStart'>Logout</h4>
       </div>
       <h1 class='views' @click='routeToSmile'>Views</h1>
@@ -14,7 +15,6 @@
       <router-view />
     </main>
     </fullscreen>
-    <button type="button" @click="toggle" >Fullscreen</button>
   </div>
 </template>
 
@@ -56,12 +56,11 @@ export default {
 
 <style lang="scss">
   #app {
-    // padding-top: 35px;
     font-family: 'Julius Sans One', sans-serif;
     color: rgb(166, 171, 173);
     :fullscreen{
       background-color: white !important;
-      padding: 15px 4%;
+      padding: 2.5% 1% 0 1%;
       @media only screen and (min-width: 1500px){
         padding: 3% 4%;
       }
