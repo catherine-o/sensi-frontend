@@ -31,7 +31,7 @@ export default {
             this.checkWelcome()
             setTimeout(() => {
                 this.input.message = ''
-            }, 7000)
+            }, 6000)
         },
         checkWelcome(){
             this.$emit('checkWelcome')

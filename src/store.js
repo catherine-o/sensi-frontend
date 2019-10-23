@@ -36,8 +36,12 @@ export default new Vuex.Store({
     createUser({ commit }, user){
       axios.post('https://sensi-backend.herokuapp.com/api/users/signup', user)
         .then(function(response) {
-          commit('setUser', response.data.user),
-          localStorage.setItem('token', response.data.token)
+          if (response.data.user) {
+            commit('setUser', response.data.user),
+            localStorage.setItem('token', response.data.token)
+          } else {
+            alert(response.data)
+          }
         })
     },
     updatePosts({ commit }, user){
