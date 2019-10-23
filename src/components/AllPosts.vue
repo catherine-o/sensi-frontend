@@ -79,9 +79,9 @@ ul {
     @media only screen and (min-width: 900px){
     justify-content: center;
     margin: 0 12%;
-    padding: 4.5% 5% 7% 7.5%;
+    padding: 7% 5% 7% 7.5%;
     justify-content: flex-start;
-    max-height: 50vh;
+    max-height: 40vh;
     }
     @media only screen and (min-width: 1500px){
         padding: 1% 5% 7% 5%;
@@ -98,6 +98,7 @@ ul {
     align-content: center;
     display: flex;
     @media only screen and (min-width: 900px){
+        margin-top: 30px;
         justify-content: center;
     }
     #key {

@@ -53,6 +53,7 @@ export default {
 
 <style lang="scss">
 .header{
+    margin-top: -15px;
     padding: 0 20px;
     @media only screen and (min-width: 900px){
     padding: 2% 0 0 15%;

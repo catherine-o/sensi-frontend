@@ -18,26 +18,24 @@
     </div>
 </template>
 
-<script>
-import { Pano } from 'vuejs-vr'
-export default {
-    components: { Pano }
-}
-</script>
 
 <style lang="scss">
 .title {
+    margin-top: -10px;
     padding: 2% 0 0 15%;
 }
 .videos {
     display: flex;
-    padding: 10% 5%;
+    padding: 20% 5%;
     flex-wrap: wrap;
     list-style: none;
     justify-content: center;
     margin: 0 auto;
+    @media only screen and (min-width: 900px){
+        padding: 20% 5%;
+    }
     @media only screen and (min-width: 1500px){
-        padding: 1%;
+        padding: 8%;
     }
     li {
         width: 340px;
