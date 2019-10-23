@@ -55,7 +55,7 @@ export default {
         width: 300px;
         height: 35px;
         border-radius: 10px;
-        margin: 15px auto;
+        margin: 18px auto;
         font-size: 15px;
         padding: 3px 15px;
         font-family: 'Titillium Web', sans-serif;

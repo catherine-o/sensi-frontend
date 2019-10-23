@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss">
 .login {
-    margin-top: 2%;
+    margin-top: 5%;
     text-align: center;
 }
 </style>
