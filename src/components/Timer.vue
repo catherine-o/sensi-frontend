@@ -5,6 +5,7 @@
 </template>
 
 <script>
+let count = ''
 export default {
     data(){
         return{
@@ -14,10 +15,13 @@ export default {
     mounted() {
         this.countdownTimer()
     },
+    beforeDestroy(){
+        clearInterval(count)
+    },
     methods: {
         countdownTimer(){
             if(this.countdown > -1){
-                setTimeout(() => {
+                count = setTimeout(() => {
                     this.countdown -= 1
                     this.countdownTimer()
                 }, 1000)
@@ -32,5 +36,8 @@ export default {
 
 
 <style lang="scss">
-
+.timer {
+    font-size: 50px;
+    padding: 10px 20%;
+}
 </style>

@@ -1,8 +1,9 @@
 <template>
     <div class='smile'>
-        <h1>Smile Big to Activate</h1>
-        <p>Hold for 6 seconds - you can do it!</p>
-        <Timer />
+        <div class='header'>
+        <h1>Smile Big to Activate!</h1><Timer />
+        <!-- <p>Hold for 6 seconds - you can do it!</p> -->
+        </div>
         <div class='images'>
             <video ref="video" id="video" width="400" height="400" playsinline muted autoplay></video>
             <div>
@@ -123,6 +124,10 @@ export default ({
 
 <style lang="scss">
 .smile {
+    .header{
+        margin-left: -14%;
+        display: flex;
+    }
     @media only screen and (min-width: 500px){
         padding: 2% 0 0 15%;
         }
