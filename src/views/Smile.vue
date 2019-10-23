@@ -2,6 +2,7 @@
     <div class='smile'>
         <h1>Smile Big to Activate</h1>
         <p>Hold for 6 seconds - you can do it!</p>
+        <Timer />
         <div class='images'>
             <video ref="video" id="video" width="400" height="400" playsinline muted autoplay></video>
             <div>
@@ -18,6 +19,7 @@ import Vue from 'vue';
 import Axios from 'axios';
 import VueAxios from 'vue-axios'
 import router from '../router'
+import Timer from '../components/Timer'
 
 Vue.use(VueAxios, Axios)
 let camera = null
@@ -32,6 +34,9 @@ export default ({
         testTimer: '',
         smile: 0
         };
+    },
+    components: {
+        Timer
     },
     beforeDestroy(){
         camera
