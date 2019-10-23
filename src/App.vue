@@ -36,6 +36,7 @@ export default {
     },
     routeToStart(){
       this.$router.push({ path: 'start' })
+      this.$store.state.user = null
       localStorage.clear()
     },
     routeToNewPost(){

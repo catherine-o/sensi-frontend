@@ -11,14 +11,16 @@ Vue.use(VueAxios, axios)
 export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    user: localStorage.getItem('vuex')
+    user: null,
+    welcome: false
   },
   mutations: {
     setUser(state, user){
       !user.posts
         ? state.user = user
-        : user.posts.reverse()
-          state.user = user
+        : (user.posts.reverse(),
+          state.user = user,
+          state.welcome = true)
     }
   },
   actions: {
@@ -28,8 +30,8 @@ export default new Vuex.Store({
           !response.data.user 
           ? alert("Incorrect username or password")
           : commit('setUser', response.data.user),
-            localStorage.setItem('token', response.data.token),
-            router.push({ path: '/newpost' })
+            localStorage.setItem('token', response.data.token)
+            // router.push({ path: '/newpost' })
         })
     },
     createUser({ commit }, user){

@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import router from '../router'
 export default {
     data() {
         return {
@@ -24,9 +25,14 @@ export default {
         loginUser(user){
             this.$store.dispatch('loginUser', user)
             this.input.message = 'Loading...'
+            this.checkWelcome()
             setTimeout(() => {
                 this.input.message = ''
-            }, 4000)
+            }, 7000)
+            
+        },
+        checkWelcome(){
+            this.$emit('checkWelcome')
         },
         getFormValues(){
             let userInfo = null

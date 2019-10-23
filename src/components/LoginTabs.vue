@@ -1,17 +1,20 @@
 <template>
-    <div class='login-tabs'>
+    <div v-if='welcome'>
+        <Welcome />
+    </div>
+    <div v-else class='login-tabs'>
         <div class='tab-2'>
             <label for='tab2-1' @click='selectTab'>Login</label>
             <input id='tab-2-1' name='tabs-two' type='radio' checked='checked'>
             <div>
-                <LoginForm />
+                <LoginForm @checkWelcome='checkWelcome' />
             </div>
         </div>
         <div class='tab-2'>
             <label for='tab2-2' @click='selectTab'>New User</label>
             <input id='tab-2-2' name='tabs-two' type='radio'>
             <div>
-                <CreateUserForm />
+                <CreateUserForm @checkWelcome='checkWelcome' />
             </div>
         </div>
     </div>
@@ -20,10 +23,18 @@
 <script>
 import LoginForm from './LoginForm'
 import CreateUserForm from './CreateUserForm'
+import Welcome from './Welcome'
+import router from '../router'
 export default {
+    data(){
+        return {
+            welcome: false
+        }
+    },
     components: {
         LoginForm,
-        CreateUserForm
+        CreateUserForm,
+        Welcome
     },
     methods: {
         selectTab(){
@@ -31,6 +42,16 @@ export default {
         },
         createUser(user){
             this.$emit("createUser", user)
+        },
+        checkWelcome(){
+            setTimeout(() => {
+                if (this.$store.state.user) {
+                    (this.welcome = true,
+                    setTimeout(() => {
+                        router.push({ path: '/newpost' })
+                    }, 5000))
+                }
+            }, 6000)
         }
     }
 }
