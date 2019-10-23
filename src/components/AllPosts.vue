@@ -1,8 +1,10 @@
 <template>
     <div>
+        <div ref='modal' id='modal' @click='hideModal'></div>
         <ul>
             <li v-for='post in posts' 
                 :key='post.id'
+                @click='showModal(post)'
                 :style='determineColor(post)'>
                 <span class='polarity'>{{ post.polarity }}</span>
                 <span class='content'>{{ post.content }}</span>
@@ -36,23 +38,49 @@ export default {
             } else if (post.polarity === 'positive' && post.polarity_confidence >= 0.75) {
                 return {'background-color': '#FFD451'}
             }
+        },
+        showModal(post){
+            let element = this.$refs.modal
+            let color = this.determineColor(post).background-color
+            // .split(':')[1]
+            
+            console.log(color)
+            element.innerText = post.content
+            element.style.display = 'block'
+        },
+        hideModal(){
+            let element = this.$refs.modal
+            element.style.display='none'
         }
     }
 }
 </script>
 
 <style lang="scss">
+#modal {
+    display: none;
+    height: 100px;
+    width: 60%;
+    z-index: 3;
+    margin: auto;
+    overflow: auto;
+    padding: 1.5%;
+    border-radius: 5px;
+    background-color: rgba(241, 242, 243, 0.822);
+    // border: 1px solid lightgray;
+    @media only screen and (min-width: 1500px){
+        margin-left: 17%;
+    }
+}
 ul {
     list-style: none;
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     overflow: auto;
-    // width: 100%;
-    // justify-content: space-around;
-    // border-bottom: 5px solid black;
+    // border-bottom: 2px solid black;
     @media only screen and (min-width: 900px){
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 0 12%;
     padding: 1% 5% 7% 7%;
     justify-content: flex-start;
