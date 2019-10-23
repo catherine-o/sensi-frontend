@@ -58,7 +58,7 @@ export default {
 #modal {
     display: none;
     height: 100px;
-    width: 60%;
+    width: 62%;
     z-index: 3;
     margin: auto;
     overflow: auto;
@@ -79,9 +79,12 @@ ul {
     @media only screen and (min-width: 900px){
     justify-content: center;
     margin: 0 12%;
-    padding: 1% 5% 7% 7%;
+    padding: 1% 5% 7% 7.5%;
     justify-content: flex-start;
     max-height: 70vh;
+    }
+    @media only screen and (min-width: 1500px){
+        padding: 1% 5% 7% 5%;
     }
     li {
         border-radius: 5px;

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <fullscreen ref="fullscreen" @change="fullscreenChange">
     <header>
       <div class='nav'>
         <h1>Sensi</h1>
@@ -12,11 +13,21 @@
     <main>
       <router-view />
     </main>
+    </fullscreen>
+    <button type="button" @click="toggle" >Fullscreen</button>
   </div>
 </template>
 
 <script>
+import fullscreen from 'vue-fullscreen'
+import Vue from 'vue'
+Vue.use(fullscreen)
 export default {
+  data(){
+    return {
+      fullscreen: false
+    }
+  },
   methods: {
     routeToProfile(){
       (!this.$store.state.user.posts)
@@ -32,6 +43,12 @@ export default {
     },
     routeToSmile(){
       this.$router.push({ path: 'smile' })
+    },
+    toggle(){
+      this.$refs['fullscreen'].toggle()
+    },
+    fullscreenChange(fullscreen){
+      this.fullscreen = fullscreen
     }
   }
 }
@@ -39,8 +56,16 @@ export default {
 
 <style lang="scss">
   #app {
+    // padding-top: 35px;
     font-family: 'Julius Sans One', sans-serif;
     color: rgb(166, 171, 173);
+    :fullscreen{
+      background-color: white !important;
+      padding: 15px 4%;
+      @media only screen and (min-width: 1500px){
+        padding: 3% 4%;
+      }
+    }
     header {
       display: flex;
       justify-content: space-between;
