@@ -39,7 +39,6 @@ export default new Vuex.Store({
           commit('setUser', response.data.user),
           localStorage.setItem('token', response.data.token)
         })
-        // .then(result => router.push({ path: '/newpost' }))
     },
     updatePosts({ commit }, user){
       commit('setUser', user)
