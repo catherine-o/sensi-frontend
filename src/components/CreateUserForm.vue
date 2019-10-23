@@ -28,6 +28,13 @@ export default {
         createUser(user){
             this.$store.dispatch('createUser', user)
             this.input.message = 'Loading...'
+            this.checkWelcome()
+            setTimeout(() => {
+                this.input.message = ''
+            }, 7000)
+        },
+        checkWelcome(){
+            this.$emit('checkWelcome')
         },
         getFormValues(){
             let userInfo = null

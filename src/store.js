@@ -31,7 +31,6 @@ export default new Vuex.Store({
           ? alert("Incorrect username or password")
           : commit('setUser', response.data.user),
             localStorage.setItem('token', response.data.token)
-            // router.push({ path: '/newpost' })
         })
     },
     createUser({ commit }, user){
@@ -40,7 +39,7 @@ export default new Vuex.Store({
           commit('setUser', response.data.user),
           localStorage.setItem('token', response.data.token)
         })
-        .then(result => router.push({ path: '/newpost' }))
+        // .then(result => router.push({ path: '/newpost' }))
     },
     updatePosts({ commit }, user){
       commit('setUser', user)
