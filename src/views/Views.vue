@@ -25,6 +25,7 @@
     padding: 2% 0 0 15%;
 }
 .videos {
+    
     display: flex;
     padding: 20% 5%;
     flex-wrap: wrap;
@@ -32,10 +33,12 @@
     justify-content: center;
     margin: 0 auto;
     @media only screen and (min-width: 900px){
-        padding: 20% 5%;
+        padding: 20% 5% 0 5%;
+        max-height: 37vh;
     }
     @media only screen and (min-width: 1500px){
         padding: 8%;
+        max-height: 45vh;
     }
     li {
         width: 340px;
