@@ -40,12 +40,10 @@ export default {
             }
         },
         showModal(post){
+            let date_only = (post.created_at).split('T')[0]
             let element = this.$refs.modal
-            let color = this.determineColor(post).background-color
-            // .split(':')[1]
-            
-            console.log(color)
-            element.innerText = post.content
+            let color = this.determineColor(post).background-color            
+            element.innerText = date_only + ' : ' + post.content
             element.style.display = 'block'
         },
         hideModal(){
@@ -67,7 +65,6 @@ export default {
     padding: 1.5%;
     border-radius: 5px;
     background-color: rgba(241, 242, 243, 0.822);
-    // border: 1px solid lightgray;
     @media only screen and (min-width: 1500px){
         margin-left: 17%;
     }
