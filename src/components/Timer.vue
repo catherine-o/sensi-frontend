@@ -39,5 +39,6 @@ export default {
 .timer {
     font-size: 50px;
     padding: 10px 20%;
+    z-index: 3;
 }
 </style>

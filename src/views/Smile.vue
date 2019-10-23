@@ -2,7 +2,6 @@
     <div class='smile'>
         <div class='header'>
         <h1>Smile Big to Activate!</h1><Timer />
-        <!-- <p>Hold for 6 seconds - you can do it!</p> -->
         </div>
         <div class='images'>
             <video ref="video" id="video" width="400" height="400" playsinline muted autoplay></video>
@@ -69,9 +68,8 @@ export default ({
         let params = {
             "returnFaceId": "true",
             "returnFaceLandmarks": "false",
-            "returnFaceAttributes":
-            "emotion"
-        };
+            "returnFaceAttributes": "emotion"
+        }
         //Convert the format of the image added at the end of the array and assign it to the imgURL format
         const imgURL = this.makeblob(this.captures[this.captures.length - 1])
         //Send imgURL image to Face API
@@ -134,6 +132,7 @@ export default ({
         .images {
             @media only screen and (min-width: 900px){
                 display: flex;
+                padding: 1% 0 0 5%;
             }
             #emo_canvas {
                 padding-top: 5%;
