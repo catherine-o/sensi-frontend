@@ -75,7 +75,6 @@ ul {
     flex-flow: row wrap;
     align-content: center;
     overflow: auto;
-    // border-bottom: 2px solid black;
     @media only screen and (min-width: 900px){
     justify-content: center;
     margin: 0 12%;
@@ -84,8 +83,8 @@ ul {
     max-height: 29vh;
     }
     @media only screen and (min-width: 1500px){
-        padding: 5% 5% 7% 5%;
-        max-height: 40vh;
+        padding: 13% 6% 2% 6%;
+        max-height: 29vh;
     }
     li {
         border-radius: 5px;
@@ -101,6 +100,10 @@ ul {
     display: flex;
     @media only screen and (min-width: 900px){
         margin-top: 30px;
+        justify-content: center;
+    }
+    @media only screen and (min-width: 1500px){
+        margin-top: 35px;
         justify-content: center;
     }
     #key {

@@ -54,6 +54,9 @@ export default {
     @media only screen and (min-width: 900px){
     padding: 2% 0 0 15%;
     }
+    @media only screen and (min-width: 1500px){
+    padding: 1% 0 0 15%;
+    }
     .selection {
         font-size: 32px;
         font-family: 'Titillium Web', sans-serif;
