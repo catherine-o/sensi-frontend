@@ -33,7 +33,6 @@ export default {
             slightNegatives = posts.filter(function(post){
                 return post.polarity === 'negative' && post.polarity_confidence < 0.75
             })
-            console.log(slightNegatives)
             return slightNegatives.length
         },
         neutrals(){
