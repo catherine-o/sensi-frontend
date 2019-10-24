@@ -53,7 +53,6 @@ export default {
     padding: 0 20px;
     @media only screen and (min-width: 900px){
     padding: 2% 0 0 15%;
-    // display: flex;
     }
     .selection {
         font-size: 32px;

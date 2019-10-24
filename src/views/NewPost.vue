@@ -88,9 +88,6 @@ export default {
             font-size: 15px;
             padding: 3px 15px;
             font-family: 'Titillium Web', sans-serif;
-            // @media only screen and (min-width: 1500px){
-            //     margin: 15px 5%;
-            // }
         }
         button:hover {
             cursor: pointer;

@@ -79,13 +79,13 @@ ul {
     @media only screen and (min-width: 900px){
     justify-content: center;
     margin: 0 12%;
-    padding: 7% 5% 7% 7%;
+    padding: 13% 5% 7% 7%;
     justify-content: flex-start;
-    max-height: 39vh;
+    max-height: 29vh;
     }
     @media only screen and (min-width: 1500px){
-        padding: 1% 5% 7% 5%;
-        max-height: 45vh;
+        padding: 5% 5% 7% 5%;
+        max-height: 40vh;
     }
     li {
         border-radius: 5px;
@@ -93,6 +93,7 @@ ul {
         height: 70px;
         margin: 1%;
         color: rgba(255, 255, 255, 0);
+        
     }
 }
 .footer {
