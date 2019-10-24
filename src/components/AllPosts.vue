@@ -81,10 +81,11 @@ ul {
     margin: 0 12%;
     padding: 7% 5% 7% 7%;
     justify-content: flex-start;
-    max-height: 40vh;
+    max-height: 39vh;
     }
     @media only screen and (min-width: 1500px){
         padding: 1% 5% 7% 5%;
+        max-height: 45vh;
     }
     li {
         border-radius: 5px;

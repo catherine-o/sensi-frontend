@@ -1,7 +1,15 @@
 <template>
-    <div class='profile'>
+    <div v-if='chart'>
         <div class='header'>
             <h1>Here is your Profile at a glance</h1>
+            <p @click='toggleChart'>View All</p>
+        </div>
+        <Chart :styles='chartStyles'/>
+    </div>
+    <div v-else class='profile'>
+        <div class='header'>
+            <h1>Here is your Profile at a glance</h1>
+            <p @click='toggleChart'>View Chart</p>
         </div>
         <AllPosts />
     </div>
@@ -9,24 +17,31 @@
 
 <script>
 import AllPosts from '../components/AllPosts'
+import Chart from '../components/Chart.vue'
 export default {
     data(){
         return{
-            selected: 'week',
-            showWeek: true,
-            showMonth: false
+            chart: false
         }
     },
     components: {
-        AllPosts
+        AllPosts,
+        Chart
+    },
+    computed: {
+        chartStyles(){
+            return {
+                width: '500px',
+                height: '200px',
+                margin: '3% 33%'
+            }
+        }
     },
     methods: {
-        changeSelected(){
-            this.selected === 'week'
-            ? (this.showWeek = true,
-                this.showMonth = false)
-            : this.showWeek = false, 
-                this.showMonth = true
+        toggleChart(){
+            this.chart !== true
+            ? this.chart = true
+            : this.chart = false
         }
     }
 }
@@ -38,7 +53,7 @@ export default {
     padding: 0 20px;
     @media only screen and (min-width: 900px){
     padding: 2% 0 0 15%;
-    display: flex;
+    // display: flex;
     }
     .selection {
         font-size: 32px;
