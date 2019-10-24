@@ -33,7 +33,7 @@ export default {
             return {
                 width: '500px',
                 height: '200px',
-                margin: '3% 30%'
+                margin: '3% 33%'
             }
         }
     },
