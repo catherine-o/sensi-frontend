@@ -41,7 +41,6 @@ From inside the project directory:
 npm install
 
 npm run serve
-
 ```
 Open your browser (preferably Chrome) and go to http://localhost:8080 or where otherwise directed.
 
@@ -108,4 +107,4 @@ Created by [Catherine O'Hara](www.linkedin.com/in/catherine-o)
 Feel free to contact me!
 
 ## License
-[GPL v3.0]()
+[GPL v3.0](https://github.com/catherine-o/sensi-frontend/blob/master/LICENSE)
