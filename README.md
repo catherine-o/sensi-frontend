@@ -102,7 +102,7 @@ Project is: deployed for desktop browsers at [https://sensi-journ.firebaseapp.co
 The inspiration for Sensi came from an interest in AI and Machine Learning technologies. I wanted to build a product that would increase user engagement, such as camera hardware or possibly a VR headset. I was also inspired by futuristic and clean design concepts, such as seen in some episodes of a popular Netflix technology TV series :)
 
 ## Contact
-Created by [Catherine O'Hara](www.linkedin.com/in/catherine-o)
+Created by [Catherine O'Hara](https://www.linkedin.com/in/catherine-o)
 
 Feel free to contact me!
 
